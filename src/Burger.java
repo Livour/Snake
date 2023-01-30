@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Burger extends Entity {
-    private final String path = "resources\\burger.png";
-    private Image img;
+    private final Image img;
 
     public Burger(GamePanel gamePanel) {
         super(gamePanel);
         shuffle();
+        String path = "resources\\burger.png";
         img = new ImageIcon(path).getImage();
     }
 
@@ -35,7 +35,7 @@ public class Burger extends Entity {
         y = randomWithExclusions(excludedY, GamePanel.COLUMNS)*GamePanel.UNIT ;
     }
 
-    private int randomWithExclusions(ArrayList exclusions, int maxRange) {
+    private int randomWithExclusions(ArrayList<Number> exclusions, int maxRange) {
         //The code below is literal garbage, please ignore.
         Random rng = new Random();
         int randNum;

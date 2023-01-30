@@ -57,36 +57,21 @@ public class Snek extends KeyAdapter {
         SnekPart tail = body.get(0);
 
         switch (direction) {
-            case UP:
-                body.add(0, new SnekPart(gamePanel, tail.x, tail.y + GamePanel.UNIT));
-                break;
-            case DOWN:
-                body.add(0, new SnekPart(gamePanel, tail.x, tail.y - GamePanel.UNIT));
-                break;
-            case RIGHT:
-                body.add(0, new SnekPart(gamePanel, tail.x - GamePanel.UNIT, tail.y));
-                break;
-            case LEFT:
-                body.add(0, new SnekPart(gamePanel, tail.x + GamePanel.UNIT, tail.y));
-                break;
+            case UP -> body.add(0, new SnekPart(gamePanel, tail.x, tail.y + GamePanel.UNIT));
+            case DOWN -> body.add(0, new SnekPart(gamePanel, tail.x, tail.y - GamePanel.UNIT));
+            case RIGHT -> body.add(0, new SnekPart(gamePanel, tail.x - GamePanel.UNIT, tail.y));
+            case LEFT -> body.add(0, new SnekPart(gamePanel, tail.x + GamePanel.UNIT, tail.y));
         }
     }
 
     private void moveFront() {
         SnekPart head = body.get(body.size() - 1);
         switch (direction) {
-            case UP -> {
-                head.y -= GamePanel.UNIT;
-            }
-            case DOWN -> {
-                head.y += GamePanel.UNIT;
-            }
-            case LEFT -> {
-                head.x -= GamePanel.UNIT;
-            }
-            case RIGHT -> {
-                head.x += GamePanel.UNIT;
-            }
+            case UP -> head.y -= GamePanel.UNIT;
+            case DOWN -> head.y += GamePanel.UNIT;
+            case LEFT -> head.x -= GamePanel.UNIT;
+            case RIGHT -> head.x += GamePanel.UNIT;
+            default -> throw new IllegalStateException("Unexpected value: " + direction);
         }
     }
 }

@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ead6d394-3736-4733-93c6-d1008f9bf1d6" name="Changes" comment="Tile based frame added (refusing to elaborate)">
-      <change afterPath="$PROJECT_DIR$/resources/burger.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Burger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Direction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/KeyAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Snek.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnekPart.java" afterDir="false" />
+    <list default="true" id="ead6d394-3736-4733-93c6-d1008f9bf1d6" name="Changes" comment="borgar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/snek/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snek/GamePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/snek/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snek/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Burger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Burger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Snek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Snek.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +49,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/GamePanel.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -69,6 +65,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -108,7 +108,28 @@
       <option name="project" value="LOCAL" />
       <updated>1671017698059</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Gamepanel done">
+      <created>1675061571375</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1675061571375</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Snek added (created controllable snake to roam around the map with">
+      <created>1675061650633</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1675061650633</updated>
+    </task>
+    <task id="LOCAL-00004" summary="borgar">
+      <created>1675061677335</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675061677335</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,6 +158,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="Tile based frame added (refusing to elaborate)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tile based frame added (refusing to elaborate)" />
+    <MESSAGE value="Gamepanel done" />
+    <MESSAGE value="Snek added (created controllable snake to roam around the map with" />
+    <MESSAGE value="borgar" />
+    <option name="LAST_COMMIT_MESSAGE" value="borgar" />
   </component>
 </project>

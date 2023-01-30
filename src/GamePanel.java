@@ -45,7 +45,6 @@ public class GamePanel extends JPanel {
     }
 
     private void update() {
-        System.out.println(this.borgar.x);
         snek.move();
         if (snek.isYikes()) {
             gameOver();

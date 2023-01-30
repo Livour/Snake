@@ -1,7 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class Game extends JFrame {
     final String TITLE = "snek";
