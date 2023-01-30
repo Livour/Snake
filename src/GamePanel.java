@@ -59,9 +59,7 @@ public class GamePanel extends JPanel {
         super.paintComponent(g);
         setBackground(Color.GRAY);
         g.setColor(Color.white);
-        g.setFont(new Font("TimesRoman",Font.BOLD,30));
-        writeToMenu("SCORE:", 4, (Graphics2D) g);
-        writeToMenu(String.valueOf(score), 5, (Graphics2D) g);
+        paintInfoMenu(g);
         for (int i = 0; i < HEIGHT / UNIT + 1; i++) {
             for (int j = 0; j < WIDTH / UNIT + 1; j++) {
                 g.drawLine(i * UNIT, 0, i * UNIT, HEIGHT);
@@ -73,13 +71,23 @@ public class GamePanel extends JPanel {
         snek.draw(g);
     }
 
+    private void paintInfoMenu(Graphics g) {
+        g.setFont(new Font("Verdana", Font.BOLD, 30));
+        int underLineX = writeToMenu("SCORE", 4, (Graphics2D) g) + WIDTH;
+        ((Graphics2D) g).setStroke(new BasicStroke(2F));
+        g.drawLine(underLineX, 4 * UNIT + 2, underLineX + getFontMetrics((g.getFont())).stringWidth("SCORE"), 4 * UNIT + 2);
+        ((Graphics2D) g).setStroke(new BasicStroke(1));
+        writeToMenu(String.valueOf(score), 5, (Graphics2D) g);
+    }
+
     private int getCenteredX(String text, Graphics2D g2d, int width) {
         int length = (int) g2d.getFontMetrics().getStringBounds(text, g2d).getWidth();
         return width / 2 - length / 2;
     }
 
-    private void writeToMenu(String text, int rowNum, Graphics2D g) {
+    private int writeToMenu(String text, int rowNum, Graphics2D g) {
         int x = getCenteredX(text, g, INFO_BOARD_WIDTH);
         g.drawString(text, x + WIDTH, UNIT * rowNum);
+        return x;
     }
 }
