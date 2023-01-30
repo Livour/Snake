@@ -26,8 +26,8 @@ public class Burger extends Entity {
         excludedY.add(this.y);
 
         snek.body.forEach(snekPart -> {
-            excludedX.add(snekPart.x);
-            excludedY.add(snekPart.y);
+            excludedX.add(snekPart.x/GamePanel.UNIT);
+            excludedY.add(snekPart.y/GamePanel.UNIT);
         });
 
 
