@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ead6d394-3736-4733-93c6-d1008f9bf1d6" name="Changes" comment="borgar">
+    <list default="true" id="ead6d394-3736-4733-93c6-d1008f9bf1d6" name="Changes" comment="fixed warnings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/snek/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snek/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/snek/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snek/GamePanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Burger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Burger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Snek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Snek.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675061677335</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fixed warnings">
+      <created>1675062123143</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675062123143</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,6 +169,7 @@
     <MESSAGE value="Gamepanel done" />
     <MESSAGE value="Snek added (created controllable snake to roam around the map with" />
     <MESSAGE value="borgar" />
-    <option name="LAST_COMMIT_MESSAGE" value="borgar" />
+    <MESSAGE value="fixed warnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed warnings" />
   </component>
 </project>
