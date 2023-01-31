@@ -8,6 +8,6 @@ public class SnekPart extends Entity {
     @Override
     void draw(Graphics g) {
         g.setColor(Color.GREEN);
-        g.fillRect(x,y,GamePanel.UNIT+1,GamePanel.UNIT+1);
+        g.fillRect(x, y, GamePanel.UNIT + 1, GamePanel.UNIT + 1);
     }
 }
