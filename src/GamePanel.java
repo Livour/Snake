@@ -115,8 +115,6 @@ public class GamePanel extends JPanel {
         writeToMenu("START", y, g, 0);
         y += UNIT * 2;
         writeToMenu("QUIT", y, g, 1);
-
-
     }
 
     void paintGame(Graphics g) {

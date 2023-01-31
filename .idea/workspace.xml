@@ -8,14 +8,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ead6d394-3736-4733-93c6-d1008f9bf1d6" name="Changes" comment="changes to allow .jar build">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/snek/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snek/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/snek/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snek/GamePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/snek/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snek/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snek.iml" beforeDir="false" afterPath="$PROJECT_DIR$/snek.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Burger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Burger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Snek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Snek.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnekPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnekPart.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675155086049</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="changes to allow .jar build">
+      <created>1675163426167</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1675163426167</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

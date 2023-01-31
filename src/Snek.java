@@ -24,8 +24,8 @@ public class Snek extends KeyAdapter {
         SnekPart head = body.get(body.size() - 1);
         if (borgar.x == head.x && borgar.y == head.y) {
             gamePanel.score++;
-            borgar.shuffle();
             increaseSize();
+            borgar.shuffle();
         }
     }
 
@@ -33,8 +33,9 @@ public class Snek extends KeyAdapter {
         SnekPart head = body.get(body.size() - 1);
         for (int i = 0; i < body.size() - 1; i++) {
             SnekPart part = body.get(i);
-            if (head.x == part.x && head.y == part.y)
+            if (head.x == part.x && head.y == part.y){
                 return true;
+            }
         }
 
         return head.x < 0 || head.x > GamePanel.WIDTH-1 || head.y < 0 || head.y > GamePanel.HEIGHT-1;
