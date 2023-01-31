@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="snek:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ead6d394-3736-4733-93c6-d1008f9bf1d6" name="Changes" comment="">
+    <list default="true" id="ead6d394-3736-4733-93c6-d1008f9bf1d6" name="Changes" comment="changes to allow .jar build">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/snek/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snek/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/snek/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snek/GamePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/snek/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snek/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snek.iml" beforeDir="false" afterPath="$PROJECT_DIR$/snek.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Burger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Burger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,14 +81,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.20344828" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\IAF\Desktop\Fun\side-projects\snek" />
       <recent name="C:\Users\IAF\Desktop\Fun\side-projects\snek\resources" />
     </key>
   </component>
@@ -94,6 +107,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.snek.jar" />
+        <item itemvalue="JAR Application.snek.jar" />
+        <item itemvalue="JAR Application.snek.jar" />
         <item itemvalue="JAR Application.snek.jar" />
       </list>
     </recent_temporary>
@@ -170,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675074566159</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fixed bug:couldn't play again">
+      <created>1675155086049</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1675155086049</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -207,7 +230,9 @@
     <MESSAGE value="Added info menu, now showcasing the player's score" />
     <MESSAGE value="snekpart now overlaps grid" />
     <MESSAGE value="info menu related paints moved to its own separated function" />
-    <option name="LAST_COMMIT_MESSAGE" value="info menu related paints moved to its own separated function" />
+    <MESSAGE value="fixed bug:couldn't play again" />
+    <MESSAGE value="changes to allow .jar build" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes to allow .jar build" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/snek$.ic" NAME=" Coverage Results" MODIFIED="1675151692161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

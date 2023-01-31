@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 public class Burger extends Entity {
@@ -9,8 +10,8 @@ public class Burger extends Entity {
     public Burger(GamePanel gamePanel) {
         super(gamePanel);
         shuffle();
-        String path = "resources\\burger.png";
-        img = new ImageIcon(path).getImage();
+        String path = "burger.png";
+        img = new ImageIcon(Objects.requireNonNull(getClass().getResource(path))).getImage();
     }
 
     @Override

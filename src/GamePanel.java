@@ -1,5 +1,7 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 public class GamePanel extends JPanel {
 
@@ -35,8 +37,8 @@ public class GamePanel extends JPanel {
         this.setPreferredSize(new Dimension(TOTAL_WIDTH, TOTAL_HEIGHT));
         this.addKeyListener(new KeyAction(this));
         this.gameState = state.MENU;
-        this.menuBgImg = new ImageIcon("resources\\snekbg.png").getImage();
-        this.snekIconImg = new ImageIcon("resources\\snek-icon.png").getImage();
+        this.menuBgImg = new ImageIcon(Objects.requireNonNull(getClass().getResource("snekbg.png"))).getImage();
+        this.snekIconImg = new ImageIcon(Objects.requireNonNull(getClass().getResource("snek-icon.png"))).getImage();
         menuColor = new Color(0, 102, 0);
         initializeSchedule();
     }
