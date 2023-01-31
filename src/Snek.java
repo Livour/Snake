@@ -33,17 +33,16 @@ public class Snek extends KeyAdapter {
         SnekPart head = body.get(body.size() - 1);
         for (int i = 0; i < body.size() - 1; i++) {
             SnekPart part = body.get(i);
-            if (head.x == part.x && head.y == part.y){
+            if (head.x == part.x && head.y == part.y)
                 return true;
-            }
         }
 
-        return head.x < 0 || head.x > GamePanel.WIDTH-1 || head.y < 0 || head.y > GamePanel.HEIGHT-1;
+        return head.x < 0 || head.x > GamePanel.WIDTH - 1 || head.y < 0 || head.y > GamePanel.HEIGHT - 1;
     }
 
     public void move() {
         if (direction == null) return;
-
+        eat();
         for (int i = 0; i < body.size() - 1; i++) {
             SnekPart part = body.get(i);
             SnekPart nextPart = body.get(i + 1);
@@ -51,7 +50,6 @@ public class Snek extends KeyAdapter {
             part.y = nextPart.y;
         }
         moveFront();
-        eat();
     }
 
     private void increaseSize() {
