@@ -48,7 +48,6 @@ public class GamePanel extends JPanel {
     }
 
     private void gameOver() {
-        updateSchedule.stop();
         newGame();
     }
 

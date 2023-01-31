@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ead6d394-3736-4733-93c6-d1008f9bf1d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/snekbg.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/snek/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snek/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/snek/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snek/GamePanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/KeyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KeyAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnekPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnekPart.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +33,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,7 +80,7 @@
       <recent name="C:\Users\IAF\Desktop\Fun\side-projects\snek\resources" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="snek" />
@@ -93,6 +88,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="snek.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/snek_jar/snek.jar" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JAR Application.snek.jar" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -204,5 +208,8 @@
     <MESSAGE value="snekpart now overlaps grid" />
     <MESSAGE value="info menu related paints moved to its own separated function" />
     <option name="LAST_COMMIT_MESSAGE" value="info menu related paints moved to its own separated function" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/snek$.ic" NAME=" Coverage Results" MODIFIED="1675151692161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
