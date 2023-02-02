@@ -32,6 +32,7 @@ public class GamePanel extends JPanel {
     //Management
     int score;
     int cmdIndex;
+    boolean canMove;
 
     GamePanel() {
         this.setPreferredSize(new Dimension(TOTAL_WIDTH, TOTAL_HEIGHT));
@@ -47,6 +48,7 @@ public class GamePanel extends JPanel {
         this.snek = new Snek(this);
         this.borgar = new Burger(this);
         score = 0;
+        this.canMove = true;
     }
 
     private void gameOver() {
@@ -68,6 +70,7 @@ public class GamePanel extends JPanel {
             }
         }
         repaint();
+        this.canMove = true;
     }
 
     public void executeCommand() {
