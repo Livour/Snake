@@ -53,14 +53,7 @@ public class Snek extends KeyAdapter {
     }
 
     private void increaseSize() {
-        SnekPart tail = body.get(0);
-
-        switch (direction) {
-            case UP -> body.add(0, new SnekPart(gamePanel, tail.x, tail.y + GamePanel.UNIT));
-            case DOWN -> body.add(0, new SnekPart(gamePanel, tail.x, tail.y - GamePanel.UNIT));
-            case RIGHT -> body.add(0, new SnekPart(gamePanel, tail.x - GamePanel.UNIT, tail.y));
-            case LEFT -> body.add(0, new SnekPart(gamePanel, tail.x + GamePanel.UNIT, tail.y));
-        }
+        body.add(0,new SnekPart(gamePanel));
     }
 
     private void moveFront() {
