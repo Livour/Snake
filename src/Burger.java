@@ -19,19 +19,20 @@ public class Burger extends Entity {
     }
 
     public void shuffle() {
-        Snek snek = this.gp.snek;
-        ArrayList<Number> excludedX = new ArrayList<>();
-        ArrayList<Number> excludedY = new ArrayList<>();
-
-        snek.body.forEach(snekPart -> {
-            excludedX.add(snekPart.x / GamePanel.UNIT);
-            excludedY.add(snekPart.y / GamePanel.UNIT);
-        });
-
         do {
             x = randomWithinRange(GamePanel.ROWS) * GamePanel.UNIT;
             y = randomWithinRange(GamePanel.COLUMNS) * GamePanel.UNIT;
-        } while (excludedX.contains(x) && excludedY.contains(y));
+        } while (isExcluded(x, y));
+    }
+
+    private boolean isExcluded(int x, int y) {
+        Snek snek = this.gp.snek;
+
+        for (SnekPart snekPart : snek.body) {
+            if (snekPart.y == y && snekPart.x == x)
+                return true;
+        }
+        return false;
     }
 
     private int randomWithinRange(int maxRange) {
