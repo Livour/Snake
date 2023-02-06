@@ -6,12 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ead6d394-3736-4733-93c6-d1008f9bf1d6" name="Changes" comment="increaseSize is now more simple and correct">
+    <list default="true" id="ead6d394-3736-4733-93c6-d1008f9bf1d6" name="Changes" comment="burger bug in random fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/snek/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snek/GamePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Burger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Burger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/KeyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KeyAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +207,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675169087404</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="movement updated, update function is now in ActionPerformed">
+      <created>1675685287671</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1675685287671</updated>
+    </task>
+    <task id="LOCAL-00015" summary="burger bug in random fixed">
+      <created>1675685304362</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1675685304362</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,7 +262,9 @@
     <MESSAGE value="changes to allow .jar build" />
     <MESSAGE value="minor bugs and hotfixes" />
     <MESSAGE value="order of operations changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="order of operations changed" />
+    <MESSAGE value="movement updated, update function is now in ActionPerformed" />
+    <MESSAGE value="burger bug in random fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="burger bug in random fixed" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/snek$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1675684216263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
