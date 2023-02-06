@@ -1,10 +1,10 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Objects;
 
-public class GamePanel extends JPanel {
-
+public class GamePanel extends JPanel implements ActionListener {
     //Config
     static final int UNIT = 40;
     static final int WIDTH = 800;
@@ -22,7 +22,6 @@ public class GamePanel extends JPanel {
 
     //GameState
     enum state {PLAY, OVER, MENU}
-
     state gameState;
 
     //Entities
@@ -33,6 +32,7 @@ public class GamePanel extends JPanel {
     int score;
     int cmdIndex;
     boolean canMove;
+    Direction firstMove;
 
     GamePanel() {
         this.setPreferredSize(new Dimension(TOTAL_WIDTH, TOTAL_HEIGHT));
@@ -48,6 +48,7 @@ public class GamePanel extends JPanel {
         this.snek = new Snek(this);
         this.borgar = new Burger(this);
         score = 0;
+        this.firstMove = null;
         this.canMove = true;
     }
 
@@ -56,21 +57,22 @@ public class GamePanel extends JPanel {
     }
 
     private void initializeSchedule() {
-        updateSchedule = new Timer(MILLISECONDS_SPEED, e -> update());
+        updateSchedule = new Timer(MILLISECONDS_SPEED, this);
         updateSchedule.setRepeats(true);
         updateSchedule.setCoalesce(true);
         updateSchedule.start();
     }
 
-    private void update() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
         if (this.gameState == state.PLAY && snek != null) {
             snek.move();
             if (snek.isYikes()) {
                 gameOver();
             }
+            firstMove = snek.direction;
         }
         repaint();
-        this.canMove = true;
     }
 
     public void executeCommand() {
@@ -113,7 +115,6 @@ public class GamePanel extends JPanel {
         writeToMenu("SNEK", y, g, -1);
         y += UNIT * 3;
 
-
         g.setFont(new Font("SHOWCARD GOTHIC", Font.BOLD, 50));
         writeToMenu("START", y, g, 0);
         y += UNIT * 2;
@@ -153,7 +154,6 @@ public class GamePanel extends JPanel {
         int x = getCenteredX(text, (Graphics2D) g, TOTAL_WIDTH);
         g.drawString(text, x, y);
         if (index == cmdIndex) printArrow(x, y, g);
-
     }
 
     private void printArrow(int x, int y, Graphics g) {

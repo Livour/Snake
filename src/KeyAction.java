@@ -1,48 +1,40 @@
-import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class KeyAction extends KeyAdapter {
     GamePanel gamePanel;
-    private Timer movementTimer;
 
     KeyAction(GamePanel panel) {
         gamePanel = panel;
-
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
         Snek snek = gamePanel.snek;
-        if (gamePanel.gameState == GamePanel.state.PLAY && gamePanel.canMove)
+        if (gamePanel.gameState == GamePanel.state.PLAY)
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_UP:
-                    if (snek.direction != Direction.DOWN) {
-                        gamePanel.canMove = false;
+                    if (gamePanel.firstMove != Direction.DOWN) {
                         snek.direction = Direction.UP;
                     }
                     break;
                 case KeyEvent.VK_DOWN:
-                    if (snek.direction != Direction.UP) {
+                    if (gamePanel.firstMove != Direction.UP) {
                         snek.direction = Direction.DOWN;
-                        gamePanel.canMove = false;
                     }
                     break;
                 case KeyEvent.VK_RIGHT:
-                    if (snek.direction != Direction.LEFT) {
-                        gamePanel.canMove = false;
+                    if (gamePanel.firstMove != Direction.LEFT) {
                         snek.direction = Direction.RIGHT;
                     }
                     break;
                 case KeyEvent.VK_LEFT:
-                    if (snek.direction != Direction.RIGHT) {
-                        gamePanel.canMove = false;
+                    if (gamePanel.firstMove != Direction.RIGHT) {
                         snek.direction = Direction.LEFT;
                     }
                     break;
                 default:
             }
-        startTimer();
 
         if (gamePanel.gameState == GamePanel.state.MENU) {
             switch (e.getKeyCode()) {
@@ -56,15 +48,6 @@ public class KeyAction extends KeyAdapter {
             if (gamePanel.cmdIndex > 1)
                 gamePanel.cmdIndex = 0;
         }
-    }
-
-    private void startTimer() {
-        if (movementTimer != null && movementTimer.isRunning())
-            movementTimer.stop();
-
-        movementTimer = new Timer(GamePanel.MILLISECONDS_SPEED, e -> {
-        });
-        movementTimer.start();
     }
 }
 
