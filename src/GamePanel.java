@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
+import java.util.Stack;
 
 public class GamePanel extends JPanel implements ActionListener {
     //Config
@@ -35,8 +36,10 @@ public class GamePanel extends JPanel implements ActionListener {
     int cmdIndex;
     boolean canMove;
     Direction firstMove;
+    Stack<Direction> directionStack;
 
     GamePanel() {
+        directionStack = new Stack<>();
         this.setPreferredSize(new Dimension(TOTAL_WIDTH, TOTAL_HEIGHT));
         this.addKeyListener(new KeyAction(this));
         this.gameState = state.MENU;
@@ -68,13 +71,41 @@ public class GamePanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (this.gameState == state.PLAY && snek != null) {
+            setNewDirection();
             snek.move();
             if (snek.isYikes()) {
                 gameOver();
             }
-            firstMove = snek.direction;
         }
         repaint();
+    }
+
+    private void setNewDirection() {
+        if (directionStack.isEmpty()) return;
+        boolean isFound = false;
+        while (!directionStack.isEmpty()) {
+            Direction potentialDir = directionStack.pop();
+            if (!isFound && snek.direction != null)
+                switch (snek.direction) {
+                    case UP -> {
+                        if (potentialDir != Direction.DOWN) snek.direction = potentialDir;
+                        isFound = true;
+                    }
+                    case DOWN -> {
+                        if (potentialDir != Direction.UP) snek.direction = potentialDir;
+                        isFound = true;
+                    }
+                    case LEFT -> {
+                        if (potentialDir != Direction.RIGHT) snek.direction = potentialDir;
+                        isFound = true;
+                    }
+                    case RIGHT -> {
+                        if (potentialDir != Direction.LEFT) snek.direction = potentialDir;
+                        isFound = true;
+                    }
+                }
+            else if (snek.direction == null) snek.direction = potentialDir;
+        }
     }
 
     public void executeCommand() {

@@ -1,42 +1,26 @@
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Stack;
 
 public class KeyAction extends KeyAdapter {
     GamePanel gamePanel;
+    Stack<Direction> directionStack;
+
 
     KeyAction(GamePanel panel) {
         gamePanel = panel;
+        directionStack = gamePanel.directionStack;
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        Snek snek = gamePanel.snek;
-
         switch (gamePanel.gameState) {
-
             case PLAY -> {
                 switch (e.getKeyCode()) {
-                    case KeyEvent.VK_UP:
-                        if (gamePanel.firstMove != Direction.DOWN) {
-                            snek.direction = Direction.UP;
-                        }
-                        break;
-                    case KeyEvent.VK_DOWN:
-                        if (gamePanel.firstMove != Direction.UP) {
-                            snek.direction = Direction.DOWN;
-                        }
-                        break;
-                    case KeyEvent.VK_RIGHT:
-                        if (gamePanel.firstMove != Direction.LEFT) {
-                            snek.direction = Direction.RIGHT;
-                        }
-                        break;
-                    case KeyEvent.VK_LEFT:
-                        if (gamePanel.firstMove != Direction.RIGHT) {
-                            snek.direction = Direction.LEFT;
-                        }
-                        break;
-                    default:
+                    case KeyEvent.VK_UP -> directionStack.push(Direction.UP);
+                    case KeyEvent.VK_DOWN -> directionStack.push(Direction.DOWN);
+                    case KeyEvent.VK_RIGHT -> directionStack.push(Direction.RIGHT);
+                    case KeyEvent.VK_LEFT -> directionStack.push(Direction.LEFT);
                 }
             }
 
@@ -62,5 +46,6 @@ public class KeyAction extends KeyAdapter {
             }
         }
     }
+
 }
 
