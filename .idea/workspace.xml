@@ -6,9 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ead6d394-3736-4733-93c6-d1008f9bf1d6" name="Changes" comment="final build">
+    <list default="true" id="ead6d394-3736-4733-93c6-d1008f9bf1d6" name="Changes" comment="Gameover screen added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Burger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Burger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/snek/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snek/GamePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KeyAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675687621658</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="made shuffle more efficient">
+      <created>1675688308557</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1675688308557</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -272,7 +281,9 @@
     <MESSAGE value="movement updated, update function is now in ActionPerformed" />
     <MESSAGE value="burger bug in random fixed" />
     <MESSAGE value="final build" />
-    <option name="LAST_COMMIT_MESSAGE" value="final build" />
+    <MESSAGE value="made shuffle more efficient" />
+    <MESSAGE value="Gameover screen added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gameover screen added" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/snek$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1675684216263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

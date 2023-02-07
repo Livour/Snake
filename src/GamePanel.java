@@ -7,6 +7,7 @@ import java.util.Objects;
 public class GamePanel extends JPanel implements ActionListener {
     //Config
     static final int UNIT = 40;
+    static final int MENU_UNIT = 40;
     static final int WIDTH = 800;
     static final int HEIGHT = 800;
     static final int INFO_BOARD_WIDTH = 200;
@@ -22,6 +23,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
     //GameState
     enum state {PLAY, OVER, MENU}
+
     state gameState;
 
     //Entities
@@ -53,7 +55,7 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     private void gameOver() {
-        newGame();
+        gameState = state.OVER;
     }
 
     private void initializeSchedule() {
@@ -82,7 +84,7 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
-    private void startCommand() {
+    public void startCommand() {
         gameState = state.PLAY;
         newGame();
     }
@@ -98,26 +100,27 @@ public class GamePanel extends JPanel implements ActionListener {
         switch (gameState) {
             case PLAY -> paintGame(g);
             case MENU -> paintMenu(g);
+            case OVER -> paintGameOver(g);
         }
     }
 
     void paintMenu(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         g.setColor(menuColor);
-        int y = 5 * UNIT;
+        int y = 5 * MENU_UNIT;
         int x;
         g.drawImage(menuBgImg, 0, 0, null);
         //Draw Logo
         x = TOTAL_WIDTH / 2 - snekIconImg.getWidth(null) / 2;
         g2.drawImage(snekIconImg, x, y, null);
-        y += UNIT * 7 + 10;
+        y += MENU_UNIT * 7 + 10;
         g.setFont(new Font("Jokerman", Font.BOLD, 70));
         writeToMenu("SNEK", y, g, -1);
-        y += UNIT * 3;
+        y += MENU_UNIT * 3;
 
         g.setFont(new Font("SHOWCARD GOTHIC", Font.BOLD, 50));
         writeToMenu("START", y, g, 0);
-        y += UNIT * 2;
+        y += MENU_UNIT * 2;
         writeToMenu("QUIT", y, g, 1);
     }
 
@@ -131,9 +134,19 @@ public class GamePanel extends JPanel implements ActionListener {
                 g.drawLine(0, j * UNIT, WIDTH, j * UNIT);
             }
         }
+        if (gameState == state.PLAY) {
+            borgar.draw(g);
+            snek.draw(g);
+        }
+    }
 
-        borgar.draw(g);
-        snek.draw(g);
+    private void paintGameOver(Graphics g) {
+        paintGame(g);
+        g.setColor(Color.RED);
+        g.setFont(new Font("Verdana", Font.BOLD, 110));
+        writeToCenter("GAME OVER", MENU_UNIT * 7, (Graphics2D) g);
+        g.setFont(new Font("Verdana", Font.BOLD, 50));
+        writeToCenter("PRESS ENTER TO CONTINUE", MENU_UNIT * 10, (Graphics2D) g);
     }
 
     private void paintInfoMenu(Graphics g) {
@@ -143,6 +156,14 @@ public class GamePanel extends JPanel implements ActionListener {
         g.drawLine(underLineX, 4 * UNIT + 2, underLineX + getFontMetrics((g.getFont())).stringWidth("SCORE"), 4 * UNIT + 2);
         ((Graphics2D) g).setStroke(new BasicStroke(1));
         writeToInfoMenu(String.valueOf(score), 5, (Graphics2D) g);
+
+        int row = 10;
+        g.setFont(new Font("Ariel", Font.BOLD, 30));
+        writeToInfoMenu("KEYS:", row++, (Graphics2D) g);
+        writeToInfoMenu("UP        - ▴", row++, (Graphics2D) g);
+        writeToInfoMenu("DOWN - ▾", row++, (Graphics2D) g);
+        writeToInfoMenu("RIGHT - ▸", row++, (Graphics2D) g);
+        writeToInfoMenu("LEFT   - ◂", row, (Graphics2D) g);
     }
 
     private int getCenteredX(String text, Graphics2D g2d, int width) {
@@ -155,6 +176,7 @@ public class GamePanel extends JPanel implements ActionListener {
         g.drawString(text, x, y);
         if (index == cmdIndex) printArrow(x, y, g);
     }
+
 
     private void printArrow(int x, int y, Graphics g) {
         x -= 50;
@@ -170,5 +192,10 @@ public class GamePanel extends JPanel implements ActionListener {
         int x = getCenteredX(text, g, INFO_BOARD_WIDTH);
         g.drawString(text, x + WIDTH, UNIT * rowNum);
         return x;
+    }
+
+    private void writeToCenter(String text, int y, Graphics2D g) {
+        int x = getCenteredX(text, g, WIDTH);
+        g.drawString(text, x, y);
     }
 }
