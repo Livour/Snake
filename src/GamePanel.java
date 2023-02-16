@@ -23,7 +23,7 @@ public class GamePanel extends JPanel implements ActionListener {
     private final Color menuColor;
 
     //GameState
-    enum state {PLAY, OVER, MENU}
+    enum state {PLAY, OVER, MENU, PAUSED}
 
     state gameState;
 
@@ -132,7 +132,15 @@ public class GamePanel extends JPanel implements ActionListener {
             case PLAY -> paintGame(g);
             case MENU -> paintMenu(g);
             case OVER -> paintGameOver(g);
+            case PAUSED -> paintPaused(g);
         }
+    }
+
+    void paintPaused(Graphics g) {
+        paintGame(g);
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("Verdana", Font.BOLD, 110));
+        writeToCenter("PAUSED", MENU_UNIT * 7, (Graphics2D) g);
     }
 
     void paintMenu(Graphics g) {

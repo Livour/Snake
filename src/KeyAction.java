@@ -21,6 +21,14 @@ public class KeyAction extends KeyAdapter {
                     case KeyEvent.VK_DOWN -> directionStack.push(Direction.DOWN);
                     case KeyEvent.VK_RIGHT -> directionStack.push(Direction.RIGHT);
                     case KeyEvent.VK_LEFT -> directionStack.push(Direction.LEFT);
+                    case KeyEvent.VK_ESCAPE -> gamePanel.gameState = GamePanel.state.PAUSED;
+
+                }
+            }
+
+            case PAUSED -> {
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    gamePanel.gameState = GamePanel.state.PLAY;
                 }
             }
 
