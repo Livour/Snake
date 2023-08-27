@@ -36,10 +36,10 @@ public class GamePanel extends JPanel implements ActionListener {
     int cmdIndex;
     boolean canMove;
     Direction firstMove;
-    Stack<Direction> directionStack;
+    Direction previousMove;
+    Direction direction;
 
     GamePanel() {
-        directionStack = new Stack<>();
         this.setPreferredSize(new Dimension(TOTAL_WIDTH, TOTAL_HEIGHT));
         this.addKeyListener(new KeyAction(this));
         this.gameState = state.MENU;
@@ -59,6 +59,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
     private void gameOver() {
         gameState = state.OVER;
+        direction = null;
     }
 
     private void initializeSchedule() {
@@ -81,30 +82,38 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     private void setNewDirection() {
-        if (directionStack.isEmpty()) return;
-        boolean isFound = false;
-        while (!directionStack.isEmpty()) {
-            Direction potentialDir = directionStack.pop();
-            if (!isFound && snek.direction != null)
-                switch (snek.direction) {
-                    case UP -> {
-                        if (potentialDir != Direction.DOWN) snek.direction = potentialDir;
-                        isFound = true;
-                    }
-                    case DOWN -> {
-                        if (potentialDir != Direction.UP) snek.direction = potentialDir;
-                        isFound = true;
-                    }
-                    case LEFT -> {
-                        if (potentialDir != Direction.RIGHT) snek.direction = potentialDir;
-                        isFound = true;
-                    }
-                    case RIGHT -> {
-                        if (potentialDir != Direction.LEFT) snek.direction = potentialDir;
-                        isFound = true;
+        if (snek.direction == null) {
+            snek.direction = direction;
+            previousMove = direction;
+        }
+
+        if (previousMove != direction) {
+            switch (snek.direction) {
+                case UP -> {
+                    if (direction != Direction.DOWN) {
+                        snek.direction = direction;
+                        previousMove = direction;
                     }
                 }
-            else if (snek.direction == null) snek.direction = potentialDir;
+                case DOWN -> {
+                    if (direction != Direction.UP) {
+                        snek.direction = direction;
+                        previousMove = direction;
+                    }
+                }
+                case LEFT -> {
+                    if (direction != Direction.RIGHT) {
+                        snek.direction = direction;
+                        previousMove = direction;
+                    }
+                }
+                case RIGHT -> {
+                    if (direction != Direction.LEFT) {
+                        snek.direction = direction;
+                        previousMove = direction;
+                    }
+                }
+            }
         }
     }
 

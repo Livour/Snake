@@ -4,12 +4,11 @@ import java.util.Stack;
 
 public class KeyAction extends KeyAdapter {
     GamePanel gamePanel;
-    Stack<Direction> directionStack;
 
 
     KeyAction(GamePanel panel) {
         gamePanel = panel;
-        directionStack = gamePanel.directionStack;
+
     }
 
     @Override
@@ -17,10 +16,10 @@ public class KeyAction extends KeyAdapter {
         switch (gamePanel.gameState) {
             case PLAY -> {
                 switch (e.getKeyCode()) {
-                    case KeyEvent.VK_UP -> directionStack.push(Direction.UP);
-                    case KeyEvent.VK_DOWN -> directionStack.push(Direction.DOWN);
-                    case KeyEvent.VK_RIGHT -> directionStack.push(Direction.RIGHT);
-                    case KeyEvent.VK_LEFT -> directionStack.push(Direction.LEFT);
+                    case KeyEvent.VK_UP -> gamePanel.direction = Direction.UP;
+                    case KeyEvent.VK_DOWN -> gamePanel.direction = Direction.DOWN;
+                    case KeyEvent.VK_RIGHT -> gamePanel.direction = Direction.RIGHT;
+                    case KeyEvent.VK_LEFT -> gamePanel.direction = Direction.LEFT;
                     case KeyEvent.VK_ESCAPE -> gamePanel.gameState = GamePanel.state.PAUSED;
 
                 }
