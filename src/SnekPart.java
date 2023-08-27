@@ -5,6 +5,10 @@ public class SnekPart extends Entity {
         super(gp, x, y);
     }
 
+    public SnekPart(GamePanel gp){
+        super(gp);
+    }
+
     @Override
     void draw(Graphics g) {
         g.setColor(Color.GREEN);

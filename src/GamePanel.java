@@ -1,12 +1,13 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Objects;
 
-public class GamePanel extends JPanel {
-
+public class GamePanel extends JPanel implements ActionListener {
     //Config
     static final int UNIT = 40;
+    static final int MENU_UNIT = 40;
     static final int WIDTH = 800;
     static final int HEIGHT = 800;
     static final int INFO_BOARD_WIDTH = 200;
@@ -21,7 +22,7 @@ public class GamePanel extends JPanel {
     private final Color menuColor;
 
     //GameState
-    enum state {PLAY, OVER, MENU}
+    enum state {PLAY, OVER, MENU, PAUSED}
 
     state gameState;
 
@@ -32,7 +33,8 @@ public class GamePanel extends JPanel {
     //Management
     int score;
     int cmdIndex;
-    boolean canMove;
+    Direction previousMove;
+    Direction direction;
 
     GamePanel() {
         this.setPreferredSize(new Dimension(TOTAL_WIDTH, TOTAL_HEIGHT));
@@ -48,29 +50,57 @@ public class GamePanel extends JPanel {
         this.snek = new Snek(this);
         this.borgar = new Burger(this);
         score = 0;
-        this.canMove = true;
     }
 
     private void gameOver() {
-        newGame();
+        gameState = state.OVER;
+        direction = null;
     }
 
     private void initializeSchedule() {
-        updateSchedule = new Timer(MILLISECONDS_SPEED, e -> update());
+        updateSchedule = new Timer(MILLISECONDS_SPEED, this);
         updateSchedule.setRepeats(true);
         updateSchedule.setCoalesce(true);
         updateSchedule.start();
     }
 
-    private void update() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
         if (this.gameState == state.PLAY && snek != null) {
+            setNewDirection();
             snek.move();
             if (snek.isYikes()) {
                 gameOver();
             }
         }
         repaint();
-        this.canMove = true;
+    }
+
+    private void insertNewDirection() {
+        snek.direction = direction;
+        previousMove = direction;
+    }
+
+
+    private void setNewDirection() {
+        if (snek.direction == null) insertNewDirection();
+
+        if (previousMove != direction) {
+            switch (snek.direction) {
+                case UP -> {
+                    if (direction != Direction.DOWN) insertNewDirection();
+                }
+                case DOWN -> {
+                    if (direction != Direction.UP) insertNewDirection();
+                }
+                case LEFT -> {
+                    if (direction != Direction.RIGHT) insertNewDirection();
+                }
+                case RIGHT -> {
+                    if (direction != Direction.LEFT) insertNewDirection();
+                }
+            }
+        }
     }
 
     public void executeCommand() {
@@ -80,7 +110,7 @@ public class GamePanel extends JPanel {
         }
     }
 
-    private void startCommand() {
+    public void startCommand() {
         gameState = state.PLAY;
         newGame();
     }
@@ -96,27 +126,35 @@ public class GamePanel extends JPanel {
         switch (gameState) {
             case PLAY -> paintGame(g);
             case MENU -> paintMenu(g);
+            case OVER -> paintGameOver(g);
+            case PAUSED -> paintPaused(g);
         }
+    }
+
+    void paintPaused(Graphics g) {
+        paintGame(g);
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("Verdana", Font.BOLD, 110));
+        writeToCenter("PAUSED", MENU_UNIT * 7, (Graphics2D) g);
     }
 
     void paintMenu(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         g.setColor(menuColor);
-        int y = 5 * UNIT;
+        int y = 5 * MENU_UNIT;
         int x;
         g.drawImage(menuBgImg, 0, 0, null);
         //Draw Logo
         x = TOTAL_WIDTH / 2 - snekIconImg.getWidth(null) / 2;
         g2.drawImage(snekIconImg, x, y, null);
-        y += UNIT * 7 + 10;
+        y += MENU_UNIT * 7 + 10;
         g.setFont(new Font("Jokerman", Font.BOLD, 70));
         writeToMenu("SNEK", y, g, -1);
-        y += UNIT * 3;
-
+        y += MENU_UNIT * 3;
 
         g.setFont(new Font("SHOWCARD GOTHIC", Font.BOLD, 50));
         writeToMenu("START", y, g, 0);
-        y += UNIT * 2;
+        y += MENU_UNIT * 2;
         writeToMenu("QUIT", y, g, 1);
     }
 
@@ -130,9 +168,19 @@ public class GamePanel extends JPanel {
                 g.drawLine(0, j * UNIT, WIDTH, j * UNIT);
             }
         }
+        if (gameState == state.PLAY) {
+            borgar.draw(g);
+            snek.draw(g);
+        }
+    }
 
-        borgar.draw(g);
-        snek.draw(g);
+    private void paintGameOver(Graphics g) {
+        paintGame(g);
+        g.setColor(Color.RED);
+        g.setFont(new Font("Verdana", Font.BOLD, 110));
+        writeToCenter("GAME OVER", MENU_UNIT * 7, (Graphics2D) g);
+        g.setFont(new Font("Verdana", Font.BOLD, 50));
+        writeToCenter("PRESS ENTER TO CONTINUE", MENU_UNIT * 10, (Graphics2D) g);
     }
 
     private void paintInfoMenu(Graphics g) {
@@ -142,6 +190,14 @@ public class GamePanel extends JPanel {
         g.drawLine(underLineX, 4 * UNIT + 2, underLineX + getFontMetrics((g.getFont())).stringWidth("SCORE"), 4 * UNIT + 2);
         ((Graphics2D) g).setStroke(new BasicStroke(1));
         writeToInfoMenu(String.valueOf(score), 5, (Graphics2D) g);
+
+        int row = 10;
+        g.setFont(new Font("Ariel", Font.BOLD, 30));
+        writeToInfoMenu("KEYS:", row++, (Graphics2D) g);
+        writeToInfoMenu("UP        - ▴", row++, (Graphics2D) g);
+        writeToInfoMenu("DOWN - ▾", row++, (Graphics2D) g);
+        writeToInfoMenu("RIGHT - ▸", row++, (Graphics2D) g);
+        writeToInfoMenu("LEFT   - ◂", row, (Graphics2D) g);
     }
 
     private int getCenteredX(String text, Graphics2D g2d, int width) {
@@ -153,8 +209,8 @@ public class GamePanel extends JPanel {
         int x = getCenteredX(text, (Graphics2D) g, TOTAL_WIDTH);
         g.drawString(text, x, y);
         if (index == cmdIndex) printArrow(x, y, g);
-
     }
+
 
     private void printArrow(int x, int y, Graphics g) {
         x -= 50;
@@ -170,5 +226,10 @@ public class GamePanel extends JPanel {
         int x = getCenteredX(text, g, INFO_BOARD_WIDTH);
         g.drawString(text, x + WIDTH, UNIT * rowNum);
         return x;
+    }
+
+    private void writeToCenter(String text, int y, Graphics2D g) {
+        int x = getCenteredX(text, g, WIDTH);
+        g.drawString(text, x, y);
     }
 }

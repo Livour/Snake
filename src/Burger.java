@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Objects;
-import java.util.Random;
 
 public class Burger extends Entity {
     private final Image img;
@@ -20,29 +18,23 @@ public class Burger extends Entity {
     }
 
     public void shuffle() {
-        Snek snek = this.gp.snek;
-        ArrayList<Number> excludedX = new ArrayList<>();
-        ArrayList<Number> excludedY = new ArrayList<>();
-        excludedX.add(this.x);
-        excludedY.add(this.y);
-
-        snek.body.forEach(snekPart -> {
-            excludedX.add(snekPart.x/GamePanel.UNIT);
-            excludedY.add(snekPart.y/GamePanel.UNIT);
-        });
-
-
-        x = randomWithExclusions(excludedX, GamePanel.ROWS)*GamePanel.UNIT;
-        y = randomWithExclusions(excludedY, GamePanel.COLUMNS)*GamePanel.UNIT ;
+        do {
+            x = randomWithinRange(GamePanel.ROWS) * GamePanel.UNIT;
+            y = randomWithinRange(GamePanel.COLUMNS) * GamePanel.UNIT;
+        } while (isExcluded(x, y));
     }
 
-    private int randomWithExclusions(ArrayList<Number> exclusions, int maxRange) {
-        //The code below is literal garbage, please ignore.
-        Random rng = new Random();
-        int randNum;
-        do {
-            randNum = rng.nextInt(maxRange);
-        } while (exclusions.contains(randNum));
-        return randNum;
+    private boolean isExcluded(int x, int y) {
+        Snek snek = this.gp.snek;
+
+        for (SnekPart snekPart : snek.body) {
+            if (snekPart.y == y && snekPart.x == x)
+                return true;
+        }
+        return false;
+    }
+
+    private int randomWithinRange(int maxRange) {
+        return (int) (Math.random() * (maxRange));
     }
 }
