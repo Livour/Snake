@@ -76,37 +76,28 @@ public class GamePanel extends JPanel implements ActionListener {
         repaint();
     }
 
+    private void insertNewDirection() {
+        snek.direction = direction;
+        previousMove = direction;
+    }
+
+
     private void setNewDirection() {
-        if (snek.direction == null) {
-            snek.direction = direction;
-            previousMove = direction;
-        }
+        if (snek.direction == null) insertNewDirection();
 
         if (previousMove != direction) {
             switch (snek.direction) {
                 case UP -> {
-                    if (direction != Direction.DOWN) {
-                        snek.direction = direction;
-                        previousMove = direction;
-                    }
+                    if (direction != Direction.DOWN) insertNewDirection();
                 }
                 case DOWN -> {
-                    if (direction != Direction.UP) {
-                        snek.direction = direction;
-                        previousMove = direction;
-                    }
+                    if (direction != Direction.UP) insertNewDirection();
                 }
                 case LEFT -> {
-                    if (direction != Direction.RIGHT) {
-                        snek.direction = direction;
-                        previousMove = direction;
-                    }
+                    if (direction != Direction.RIGHT) insertNewDirection();
                 }
                 case RIGHT -> {
-                    if (direction != Direction.LEFT) {
-                        snek.direction = direction;
-                        previousMove = direction;
-                    }
+                    if (direction != Direction.LEFT) insertNewDirection();
                 }
             }
         }
