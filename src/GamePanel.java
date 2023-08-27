@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
-import java.util.Stack;
 
 public class GamePanel extends JPanel implements ActionListener {
     //Config
@@ -34,8 +33,6 @@ public class GamePanel extends JPanel implements ActionListener {
     //Management
     int score;
     int cmdIndex;
-    boolean canMove;
-    Direction firstMove;
     Direction previousMove;
     Direction direction;
 
@@ -53,8 +50,6 @@ public class GamePanel extends JPanel implements ActionListener {
         this.snek = new Snek(this);
         this.borgar = new Burger(this);
         score = 0;
-        this.firstMove = null;
-        this.canMove = true;
     }
 
     private void gameOver() {
