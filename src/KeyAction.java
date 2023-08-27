@@ -1,6 +1,5 @@
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.Stack;
 
 public class KeyAction extends KeyAdapter {
     GamePanel gamePanel;
